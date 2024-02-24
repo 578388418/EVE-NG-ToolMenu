@@ -1,0 +1,57 @@
+#!/bin/bash
+
+# 创建脚本B
+cat > script_b.sh <<'EOF'
+#!/bin/bash
+
+# 设置标题
+title="EVE-NG SupportingSystem"
+
+# 打印装饰性的标题
+echo "=================================="
+echo "        $title"
+echo "=================================="
+
+while true; do
+    # 显示菜单选项
+    echo "请选择一个选项："
+    echo "1. 修复权限（新增镜像后必须执行一次）"
+    echo "2. 选项二"
+    echo "3. 查看日志"
+    echo "4. 退出"
+
+    # 获取用户输入
+    read -p "请输入数字: " choice
+
+    # 根据用户的选择执行对应操作
+    case $choice in
+        1)
+            echo "你选择了选项一"
+            # 在这里添加选项一的具体操作
+	        /opt/unetlab/wrappers/unl_wrapper -a fixpermissions 
+            ;;
+        2)
+            echo "你选择了选项二"
+            # 在这里添加选项二的具体操作
+            ;;
+        3)
+            echo "你选择了选项三"
+            # 在这里添加选项三的具体操作
+	        cat /opt/unetlab/data/Logs/unl_wrapper.txt
+            ;;
+        4)
+            echo "退出菜单"
+            exit 0
+            ;;
+        *)
+            echo "无效的选项，请重新选择"
+            ;;
+    esac
+done
+EOF
+
+# 添加执行权限
+chmod +x script_b.sh
+
+# 删除脚本A
+rm "$0"
