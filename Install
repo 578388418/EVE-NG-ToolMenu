@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# 创建脚本B
-cat > script_b.sh <<'EOF'
+# 创建脚本B，并设置名称为eve-ng-ss.sh
+cat > /usr/local/bin/eve-ng-ss <<'EOF'
 #!/bin/bash
 
 # 设置标题
@@ -28,7 +28,7 @@ while true; do
         1)
             echo "你选择了选项一"
             # 在这里添加选项一的具体操作
-	        /opt/unetlab/wrappers/unl_wrapper -a fixpermissions 
+            /opt/unetlab/wrappers/unl_wrapper -a fixpermissions 
             ;;
         2)
             echo "你选择了选项二"
@@ -37,7 +37,7 @@ while true; do
         3)
             echo "你选择了选项三"
             # 在这里添加选项三的具体操作
-	        cat /opt/unetlab/data/Logs/unl_wrapper.txt
+            cat /opt/unetlab/data/Logs/unl_wrapper.txt
             ;;
         4)
             echo "退出菜单"
@@ -51,7 +51,7 @@ done
 EOF
 
 # 添加执行权限
-chmod +x script_b.sh
+chmod +x /usr/local/bin/eve-ng-ss
 
 # 删除脚本A
 rm "$0"
